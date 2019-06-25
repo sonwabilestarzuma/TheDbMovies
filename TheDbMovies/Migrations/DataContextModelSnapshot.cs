@@ -25,7 +25,7 @@ namespace TheDbMovies.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Image");
+                    b.Property<string>("DirectorBy");
 
                     b.Property<DateTime>("ReleaseDate");
 

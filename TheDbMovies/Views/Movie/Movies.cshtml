@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TheDbMovies.Models.Movie>
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<h1>My Movies</h1>
+<div class="row" ng-app="app-movies">
+    <a href="#/newMovie" class="btn btn-primary">New Movie</a>
+    <div ng-show="vm.busy" class="text-primary">Loading...</div>
+    <div ng-show="vm.errorMessage.length > 0">{{ vm.errorMessage }}</div>
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr><h3>{{ movie.Title }}</h3></tr>
+            </thead>
+            <tr ng-repeat="movie in vm.movies">
+                <!-- Heading -->
+                <td>{{movie.Title}}</td>
+                <td>{{movie.ReleaseDate| date: 'MM-dd-yyyy'}}</td>
+                <td>{{movie.DirectorBy}}</td>
+                <td>{{movie.Summary}}</td>
+                <td>
+                    class="pull-right"><a href="#/editVisit/{{ movie.id }}" class="btn btn-info btn-sm">Edit</a>
+                    <button class="btn btn-danger btn-sm" ng-click="vm.deleteMovie(movie.id)">Delete</button>
+                </td>
+                <!-- Paragraph -->
+
+            </tr>
+        </table>
+    </div>
+
+</div>
+

@@ -26,7 +26,7 @@ namespace TheDbMovies.Data
                     Title = "Killer",
                     ReleaseDate = new DateTime(2014, 6, 4),
                     Summary = "The Hub of movies",
-                    Image = ""
+                    DirectorBy= "Star Zuma"
                     },
                     new Movie
                     {
@@ -34,7 +34,7 @@ namespace TheDbMovies.Data
                     Title = "New Born",
                     ReleaseDate = new DateTime(2013, 8, 3),
                     Summary = "The Hub of movies",
-                    Image = ""
+                     DirectorBy= "Star Zuma"
                     },
                     new Movie
                     {
@@ -42,7 +42,7 @@ namespace TheDbMovies.Data
                     Title = "Life Saver",
                     ReleaseDate = new DateTime(2012, 7, 6),
                     Summary = "The Hub of movies",
-                    Image = ""
+                     DirectorBy= "Star Zuma"
                     }
 
             };

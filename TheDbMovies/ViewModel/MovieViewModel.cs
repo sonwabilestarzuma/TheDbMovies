@@ -12,8 +12,9 @@ namespace TheDbMovies.ViewModel
         [StringLength(20)]
         public string Title { get; set; }
 
-
-        public string Image { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string DirectorBy { get; set; }
 
         [Required]
         [Display(Name = "Release Date")]
