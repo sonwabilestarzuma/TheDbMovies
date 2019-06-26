@@ -24,11 +24,11 @@ namespace TheDbMovies.Data
             _context.Add(newMovie);
         }
 
-        public async Task<bool> AddMovieAsync(Movie newMovie)
-        {
-            _context.Movies.Add(newMovie);
-            return (await _context.SaveChangesAsync() > 0);
-        }
+        //public async Task<bool> AddMovieAsync(Movie newMovie)
+        //{
+        //    _context.Movies.Add(newMovie);
+        //    return (await _context.SaveChangesAsync() > 0);
+        //}
         public async Task<bool> DeleteMovieAsync(int id)
         {
             var movie = await GetMovieByIdAsync(id);

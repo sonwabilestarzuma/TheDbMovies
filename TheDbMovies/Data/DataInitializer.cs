@@ -34,7 +34,7 @@ namespace TheDbMovies.Data
                     Title = "New Born",
                     ReleaseDate = new DateTime(2013, 8, 3),
                     Summary = "The Hub of movies",
-                     DirectorBy= "Star Zuma"
+                    DirectorBy= "Star Zuma"
                     },
                     new Movie
                     {

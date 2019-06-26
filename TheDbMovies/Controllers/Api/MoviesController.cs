@@ -13,7 +13,6 @@ using TheDbMovies.ViewModel;
 namespace TheDbMovies.Controllers.Api
 {
     [Route("api/movies")]
-    [Authorize]
     public class MoviesController : Controller
     {
         private IMovieRepository _repository;

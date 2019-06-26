@@ -23,7 +23,6 @@ namespace TheDbMovies.Controllers
         {
             return View();
         }
-        [Authorize]
         public IActionResult Movies()
         {
             try

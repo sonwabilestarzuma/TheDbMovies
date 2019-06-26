@@ -10,7 +10,7 @@ namespace TheDbMovies.Data
     {
         IEnumerable<Movie> GetAllMovies();
         Movie GetMovieByTitle(string movieTitle);
-        Task<bool> AddMovieAsync(Movie newMovie);
+        //Task<bool> AddMovieAsync(Movie newMovie);
         Task<bool> UpdateMovieAsync(Movie movie);
         Task<Movie> GetMovieByIdAsync(int id);
         Task<bool> DeleteMovieAsync(int id);
