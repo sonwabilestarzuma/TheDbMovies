@@ -75,12 +75,15 @@ namespace TheDbMovies
                 Config.CreateMap<MovieViewModel, Movie>().ReverseMap();
             });
 
-            app.UseMvc(routes =>
+            app.UseMvc(config =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+                config.MapRoute(
+                    name: "Default",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "App", action = "Movies" });
+
+            }
+                 );
 
             seeder.EnsureSeedData().Wait();
         }
