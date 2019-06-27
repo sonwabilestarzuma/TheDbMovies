@@ -10,16 +10,21 @@
 <script src="~/bower_components/angular/angular.min.js"></script>
 
 <h1>My Movies</h1>
+
 <div class="row" ng-app="myApp-movies">
     <div ng-controller="moviesController as vm">
         @*<a href="#/newMovie" class="btn btn-primary">New Movie</a>*@
         <div ng-show="vm.busy" class="text-primary">Loading...</div>
         <div ng-show="vm.errorMessage.length > 0">{{ vm.errorMessage }}</div>
-
+        <div>
+            <hr />
+        </div>
+        <a href="#/newMovie" class="btn btn-primary">New Movie</a>
+        <div>
+            <hr />
+        </div>
         <table class="table table-responsive table-striped">
-            <thead>
-                <tr>{{ movie.Title }}</tr>
-            </thead>
+
             <tr ng-repeat="movie in vm.movies">
                 <!-- Heading -->
                 <td>{{movie.Title}}</td>
@@ -41,6 +46,9 @@
 
     <div class="col-md-6 ">
         <h2>The Movies</h2>
+        <div>
+            <hr />
+        </div>
         <table id="movies" class="table table-bordered table-hover">
             <thead>
                 <tr>
@@ -49,25 +57,51 @@
                     <th>Release Date</th>
                     <th>Summary</th>
                     <th>Director</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
 
                 </tr>
             </thead>
             <tbody>
-           
-                    @foreach (var item in Model)
-                    {
 
-                <tr>
-                    <td>@item.Title</td>
-                    <td> @item.ReleaseDate</td>
-                    <td> @item.Summary</td>
+                @foreach (var item in Model)
+                {
 
-                </tr>
-                    }
-                </tbody>
-               </table>
-</div>
+                    <tr>
+                        <td>@item.Title</td>
+                        <td> @item.ReleaseDate</td>
+                        <td> @item.Summary</td>
+                        <td>@item.DirectorBy</td>
+
+                        <td>
+                            <a asp-controller="Technology" asp-action="Edit"><button class="btn btn-primary form-control btn-block ">Manage</button></a>
+                        </td>
+                        <td>
+                            <div class="col-auto">
+                                <form asp-action="Delete" asp-route-id="">
+                                    <button data-customertechnology-id="" class="btn btn-danger form-control  btn-block js-delete" type="submit" (click)="onSubmit()">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="col-sm-2" style="padding:0px">
+
+
+
+            <a asp-controller="Technology" asp-action="AddTechnology"><button class="btn btn-primary form-control btn-block">New Movie</button></a>
+
+
+        </div>
+
 
     </div>
+    
+
+</div>
 
 

@@ -1,0 +1,48 @@
+﻿@model TheDbMovies.Models.Movie
+@{
+    ViewData["Title"] = "newMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>newMovie</h1>
+
+
+<div class="col-md-6 col-md-offset-3">
+    <h1>New Visit</h1>
+    <form name="newMovieForm" novalidate ng-submit="vm.save()">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" class="form-control" ng-model="vm.newMovie.title" required ng-minlength="3" />
+            <span class="text-danger" ng-show="newMovieForm.title.$error.required">*</span>
+            <span class="text-danger" ng-show="newMovieForm.title.$error.minlength">Minimum length three characters</span>
+        </div>
+
+        <div class="form-group">
+            <label for="directorBy">Directed By:</label>
+            <input type="text" name="directorBy" id="directorBy" class="form-control" ng-model="vm.newMovie.directorBy" required ng-minlength="3" />
+            <span class="text-danger" ng-show="newMovieForm.directorBy.$error.required">*</span>
+            <span class="text-danger" ng-show="newMovieForm.directorBy.$error.minlength">Minimum length three characters</span>
+        </div>
+
+        <div class="form-group">
+            <label for="releaseDate">Release Date:</label>
+            <input type="text" name="releaseDate" id="releaseDate" class="form-control" ng-model="vm.newMovie.releaseDate" required ng-pattern="/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/" />
+            <span class="text-danger" ng-show="newMovieForm.releaseDate.$error.required">*</span>
+            <span class="text-danger" ng-show="newMovieForm.releaseDate.$error.pattern">Must be MM/DD/YYYY.</span>
+        </div>
+
+        <div class="form-group">
+            <label for="summary">Summary:</label>
+            <textarea name="summary" id="summary" class="form-control" rows="4" ng-model="vm.newMovie.summary" ng-maxlength="1024" />
+            <span class="text-danger" ng-show="newMovieForm.summary.$error.maxlength">Cannot be longer than 1024 characters. (<span>{{ newMovieForm.summary.length }}</span>)</span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-success" ng-disabled="newMovieForm.$invalid" />
+            <a href="#/" class="btn btn-warning">Cancel</a>
+        </div>
+        <div ng-show="vm.busy" class="text-primary">Saving...</div>
+        <div ng-show="vm.errorMessage.length > 0" class="text-warning">{{ vm.errorMessage }}</div>
+    </form>
+
+</div>
